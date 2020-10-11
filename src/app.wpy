@@ -1,4 +1,8 @@
 <style lang="less">
+@import (css) 'static/style/app.wxss';
+.page{
+  background-color: #FFFFFF;
+}
 </style>
 
 <script>
@@ -13,7 +17,7 @@ wepy.app({
 
   },
   methods: {
-    
+
   }
 })
 </script>
