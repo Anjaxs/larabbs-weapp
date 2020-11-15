@@ -53,7 +53,7 @@ const actions = {
     await logout(state.accessToken)
 
     // 清空 storage
-    auth.logout()
+    await auth.logout()
     commit('resetState')
   },
   async register ({ dispatch }, params = {}) {
@@ -81,6 +81,7 @@ const mutations = {
     state.accessTokenExpiredAt = new Date().getTime() + tokenPayload.expires_in * 1000
   },
   resetState: (state) => {
+    console.log(getDefaultState())
     Object.assign(state, getDefaultState())
   }
 }
