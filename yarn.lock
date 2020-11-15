@@ -906,6 +906,11 @@
   dependencies:
     miniprogram-api-typings "^2.10.3-1"
 
+"@wepy/use-promisify@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.npm.taobao.org/@wepy/use-promisify/download/@wepy/use-promisify-2.1.0.tgz#a6b9781082802d977de620ee760a5ab3a228b60a"
+  integrity sha1-prl4EIKALZd95iDudgpas6Iotgo=
+
 "@wepy/x@^2.0.2":
   version "2.1.0"
   resolved "https://registry.npm.taobao.org/@wepy/x/download/@wepy/x-2.1.0.tgz#d7a0d61f6db096ce0cf6b83143dd5fa3a328c7b3"
@@ -3391,7 +3396,7 @@ locate-path@^5.0.0:
   dependencies:
     p-locate "^4.1.0"
 
-lodash@^4.0.0, lodash@^4.17.10, lodash@^4.17.14, lodash@^4.17.19, lodash@^4.17.4, lodash@^4.3.0, lodash@~4.17.19:
+lodash@^4.0.0, lodash@^4.17.10, lodash@^4.17.14, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.4, lodash@^4.3.0, lodash@~4.17.19:
   version "4.17.20"
   resolved "https://registry.npm.taobao.org/lodash/download/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha1-tEqbYpe8tpjxxRo1RaKzs2jVnFI=
@@ -3525,6 +3530,11 @@ mkdirp@^0.5.0, mkdirp@^0.5.1:
   integrity sha1-2Rzv1i0UNsoPQWIOJRKI1CAJne8=
   dependencies:
     minimist "^1.2.5"
+
+moment@^2.29.1:
+  version "2.29.1"
+  resolved "https://registry.npm.taobao.org/moment/download/moment-2.29.1.tgz?cache=0&sync_timestamp=1601983557585&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmoment%2Fdownload%2Fmoment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
+  integrity sha1-sr52n6MZQL6e7qZGnAdeNQBvo9M=
 
 ms@2.0.0:
   version "2.0.0"
@@ -4909,6 +4919,11 @@ wcwidth@^1.0.1:
   integrity sha1-8LDc+RW8X/FSivrbLA4XtTLaL+g=
   dependencies:
     defaults "^1.0.3"
+
+we-validator@^2.1.11:
+  version "2.1.11"
+  resolved "https://registry.npm.taobao.org/we-validator/download/we-validator-2.1.11.tgz#f74eae76f684d8c725fbaf08e1ec300aa4614ad3"
+  integrity sha1-906udvaE2Mcl+68I4ewwCqRhStM=
 
 webpack-sources@^1.1.0:
   version "1.4.3"
