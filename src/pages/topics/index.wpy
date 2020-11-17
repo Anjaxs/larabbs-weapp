@@ -76,7 +76,7 @@
   </div>
 
   <div class="page__bd">
-    <topic-list :topics="topics" :no-more-data="noMoreData"></topic-list>
+    <topic-list :topics="resourceData" :no-more-data="noMoreData"></topic-list>
   </div>
 </div>
 </template>
@@ -91,22 +91,16 @@
 <script>
   import wepy from '@wepy/core'
   import { getTopics, getCategories } from '@/api/topic'
+  import listRefresh from '@/mixins/list-refresh.js'
 
   wepy.page({
+    mixins: [ listRefresh ],
     data: {
-      // 话题数据
-      topics: [],
-      // 当前分页
-      page: 1,
-      // 是否还有更多数据
-      noMoreData: false,
-      // 是否在加载中
-      isLoading: false,
       // 分类数据
       categories: [],
       // 当前的分类
       currentCategory: {},
-      // 是否显示分类
+      // 分类列表是否展开
       categoryOpen: false
     },
     computed: {
@@ -118,33 +112,12 @@
       }
     },
     async onLoad() {
-      this.loadTopics()
       this.loadCategories()
-    },
-    async onPullDownRefresh() {
-      await this.loadTopics(true)
-      wx.stopPullDownRefresh()
-    },
-    async onReachBottom () {
-      // 如果没有更多内容，直接返回
-      if (this.noMoreData || this.isLoading) {
-        return
-      }
-
-      this.isLoading = true
-      this.page += 1
-
-      await this.loadTopics()
-
-      this.isLoading = false
+      this.loadData()
     },
     methods: {
       // 获取话题数据
-      async loadTopics(reset = false) {
-        if (reset) {
-          this.page = 1
-        }
-
+      async fetchData() {
         let params = {
           page: this.page,
           include: 'user,category'
@@ -155,17 +128,7 @@
         }
 
         // 请求话题列表接口
-        const topicsResponse = await getTopics(params)
-
-        // 将数据合并到 this.topics
-        this.topics = reset ? topicsResponse.data.data : this.topics.concat(topicsResponse.data.data)
-
-        const pagination = topicsResponse.data.meta
-
-        // 根据分页设置是否还有更多数据
-        if (pagination.current_page === pagination.last_page) {
-          this.noMoreData = true
-        }
+        return getTopics(params)
       },
       async loadCategories() {
         // 从缓存中获取分类数据
@@ -183,13 +146,13 @@
       categorisToggle() {
         this.categoryOpen = !this.categoryOpen
       },
-      async changeCategory (category = {}) {
+      async changeCategory(category = {}) {
         this.currentCategory = category
         this.categoryOpen = false
         this.page = 1
 
         // 设置 reset 为 true
-        this.loadTopics(true)
+        this.loadData(true)
       }
     }
 

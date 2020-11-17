@@ -81,7 +81,6 @@ const mutations = {
     state.accessTokenExpiredAt = new Date().getTime() + tokenPayload.expires_in * 1000
   },
   resetState: (state) => {
-    console.log(getDefaultState())
     Object.assign(state, getDefaultState())
   }
 }
