@@ -1,4 +1,4 @@
-import { authRequest, uploadFile } from '@/utils/request'
+import { authRequest, uploadFile, request } from '@/utils/request'
 
 export function getCurrentUser(data) {
   return authRequest('user')
@@ -20,4 +20,8 @@ export function updateAvatar(avatar) {
     },
     filePath: avatar
   })
+}
+
+export function getUser(id) {
+  return request('users/' + id)
 }
