@@ -109,7 +109,7 @@
       categoryOpen: false
     },
     computed: {
-      ...mapGetters([ 'unreadCount']),
+      ...mapGetters(['unreadCount']),
       currentCategoryId() {
         return this.currentCategory.id || null
       },

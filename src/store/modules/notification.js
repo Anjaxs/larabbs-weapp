@@ -1,4 +1,4 @@
-import { getNotificationStats } from '@/api/notification'
+import { getNotificationStats, readNotifications } from '@/api/notification'
 
 const state = {
   unreadCount: 0
@@ -19,6 +19,11 @@ const actions = {
     const statsResponse = await getNotificationStats({}, false)
 
     commit('setUnreadCount', statsResponse.data.unread_count)
+  },
+  async readNotifications ({ commit }, params = {}) {
+    await readNotifications()
+
+    commit('setUnreadCount', 0)
   }
 }
 
